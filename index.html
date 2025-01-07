@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Schoology</title>
+    <link rel="icon" type="image/x-icon" href="./icons/schoology2.png">
+    <meta property="og:title" content="Play unblocked games online">
+    <meta property="og:description" content="SCHOOLOGY">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d0c5025972.js" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="var(--bgColor)">
+    <script src="panicButton.js"></script> <!-- Include panicButton.js -->
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a id="homeTab" class="active" href="index.html">Home</a>
+        <a id="gamesTab" href="games.html">Games</a>
+        <a id="reviewsTab" href="reviews.html">Reviews</a>
+        <a id="settingsTab" href="settings.html">Settings</a>
+    </div>
+
+    <div id="particles-js"></div>
+    <!-- Page Content Below -->
+    <img id="userPhoto" class="animated rubberBand fast" src="icons/logo.png" alt="Your Name's Photo">
+    <h1 class="animated jello game_title">Eli's Unblocked Games</h1>
+    <p class="game_title">New update! Update 2.0!!!! </p>
+
+
+
+    <div class="movie-container">
+     <a id="Games" class="link" href="https://playgamez.github.io/test/games.html" target="_blank"><span class="bar"></span><img src="icons/games.webp"><b>Games</b></a> 
+     <a id="Reviews" class="link" href="https://playgamez.github.io/test/reviews.html" target="_blank"><span class="bar"></span><img src="icons/comment.webp"><b>Reviews</b></a> 
+     <a id="Settings" class="link" href="https://playgamez.github.io/test/settings.html" target="_blank"><span class="bar"></span><img src="icons/settings.webp"><b>Settings</b></a> 
+    </div>
+
+           
+    <script src="particles.js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.js/particles.json', function() {
+            console.log('particles.js loaded');
+    });
+
+        // Highlight the active tab
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentLocation = window.location.pathname;
+            const homeTab = document.getElementById("homeTab");
+            const gamesTab = document.getElementById("gamesTab");
+            const settingsTab = document.getElementById("settingsTab");
+            const reviewTab = document.getElementById("reviewTab");
+            // Remove 'active' class from all tabs
+            homeTab.classList.remove("active");
+            gamesTab.classList.remove("active");
+
+            settingsTab.classList.remove("active");
+            reviewTab.classList.remove("active");
+
+            // Add 'active' class to the current tab
+            if (currentLocation.includes("games.html")) {
+                gamesTab.classList.add("active");
+            } else if (currentLocation.includes("settings")) {
+                settingsTab.classList.add("active");
+            } else if (currentLocation.includes("review")) {
+                reviewTab.classList.add("active");
+            } else {
+                homeTab.classList.add("active");
+            }
+        });
+
+
+  
+</script>
+
+<script>
+        
+    // Load the saved option from localStorage
+    const savedOption = localStorage.getItem('selectedMaskOption');
+    if (savedOption) {
+        const maskDropdown = document.getElementById('maskDropdown');
+        if (maskDropdown) {
+            maskDropdown.value = savedOption;
+
+            const selectedOption = maskDropdown.options[maskDropdown.selectedIndex];
+            const newTitle = selectedOption.getAttribute('data-title');
+            const newIcon = selectedOption.getAttribute('data-icon');
+
+            // Change the title and favicon based on the saved option
+            document.title = newTitle;
+            const favicon = document.querySelector("link[rel='icon']");
+            favicon.href = newIcon;
+        } else {
+            // Fallback if maskDropdown doesn't exist on this page
+            const maskDropdownFallback = document.createElement('select');
+            maskDropdownFallback.innerHTML = `
+                <option value="schoology" data-title="Home | Schoology" data-icon="./icons/schoology2.png">Schoology</option>
+                <option value="focus" data-title="Portal" data-icon="./icons/focus.png">Focus</option>
+            `;
+            const savedOptionElement = Array.from(maskDropdownFallback.options).find(option => option.value === savedOption);
+            if (savedOptionElement) {
+                document.title = savedOptionElement.getAttribute('data-title');
+                const favicon = document.querySelector("link[rel='icon']");
+                favicon.href = savedOptionElement.getAttribute('data-icon');
+            }
+        }
+    }
+
+    // Change the title and favicon based on dropdown selection
+    if (maskDropdown) {
+        maskDropdown.addEventListener('change', function() {
+            const selectedOption = maskDropdown.options[maskDropdown.selectedIndex];
+            const newTitle = selectedOption.getAttribute('data-title');
+            const newIcon = selectedOption.getAttribute('data-icon');
+
+            // Change the title
+            document.title = newTitle;
+
+            // Change the favicon
+            const favicon = document.querySelector("link[rel='icon']");
+            favicon.href = newIcon;
+
+            // Save the selected option to localStorage
+            localStorage.setItem('selectedMaskOption', maskDropdown.value);
+        });
+    }
+
+</script>
+
+</body>
+</html>

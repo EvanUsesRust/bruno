@@ -1,0 +1,759 @@
+/* Style Settings */
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
+:root {
+    --bgColor: #1C1C1C;
+    --accentColor: #E6E6E6;
+    --bgColorg: #000000;
+    --accentColorg: #d4af37;
+    --bgColors: #000000;
+    --accentColors: #a8a8a9;
+    --bgColorb: #000000;
+    --accentColorb: #808080;
+    --font: 'Karla', sans-serif;
+    --firstName: 'John';
+    --lastName: 'Doe';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.box-image {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.badge {
+    background-color: grey;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+body {
+    background-color: var(--bgColor);
+}
+
+.badge2 {
+    background-color: yellow; /* A different color (e.g., orange) */
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#userPhoto {
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 35px auto 20px;
+    border-radius: 50%;
+}
+
+* {
+    font-family: var(--font);
+}
+
+#userName {
+    color: #bbb;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+h5 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+    font-style: italic;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+    font-style: italic;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+
+h6 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(136, 136, 136);
+    font-family: var(--font);
+}
+
+.atrib {
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: rgb(136, 136, 136);
+    font-family: var(--font);
+    padding: 17px;
+}
+
+.games {
+    display: flex;
+    width: 90%;
+    align-content: flex-start;
+    justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    left: 50%;
+    transform: translate(-50%, 0%) !important;
+}
+
+.games a:not(.epci) {
+    scroll-margin-top: 2em;
+    outline: transparent;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    background: #292929;
+    margin: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.games a:not(.epci) b {
+    z-index: 5;
+}
+
+.active {
+    display: flex !important;
+}
+
+.games a:not(.epci) img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.games a:not(.epci):before {
+    content: "";
+    background: rgba(0,0,0,0.25);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+}
+
+.bar {
+    background: #000;
+    height: 0px;
+    width: 100%;
+    transition: .4s;
+    z-index: 4;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.games a:not(.epci):hover .bar {
+    height: 40px;
+}
+
+.games a:not(.epci):hover {
+    filter: brightness(95%);
+    translate: 0 1px;
+    box-shadow: none;
+}
+
+.game_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    width: 300px;
+    height: 30px;
+    background: #292929;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    color: #fff;
+    padding-left: 10px;
+    transition: .2s;
+}
+
+.button {
+    width: 110px;
+    margin-left: 5px;
+    cursor: pointer;
+    height: 30px;
+    background: #292929;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    color: #fff;
+    transition: .2s;
+    padding-right: 5px;
+}
+
+.button:hover, .button:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00;
+}
+
+.search:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00;
+}
+
+.games a:not(.epci) .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 6;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+
+.games a:not(.epci) .badge2 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 90;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+
+.badge2p {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 6;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+
+#gamesuggest {
+    display: inline-block;  /* Allows margin auto to work */
+    background-color: #292929;  /* Match the background color of other elements */
+    color: #E6E6E6;  /* Match the font color */
+    font-size: 16px;  /* Adjust the font size to match */
+    padding: 10px 20px;  /* Adjust padding for size */
+    border: none;  /* Remove border */
+    border-radius: 5px;  /* Add border radius if needed */
+    cursor: pointer;  /* Change cursor to pointer */
+    margin: 0 auto;  /* Center the button */
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);  /* Match box-shadow */
+}
+
+#gamesuggest:hover, #gamesuggest:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00;  /* Match hover/focus color */
+}
+
+.centered-container {
+    display: flex;  /* Flexbox for centering */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically if needed */
+    text-align: center;  /* Center text inside the container */
+    margin-top: 20px;  /* Adjust the margin to position it vertically */
+}
+
+#randomGameButton {
+    display: inline-block;  /* Allows margin auto to work */
+    background-color: #292929;  /* Match the background color of other elements */
+    color: #E6E6E6;  /* Match the font color */
+    font-size: 16px;  /* Adjust the font size to match */
+    padding: 10px 20px;  /* Adjust padding for size */
+    border: none;  /* Remove border */
+    border-radius: 5px;  /* Add border radius if needed */
+    cursor: pointer;  /* Change cursor to pointer */
+    margin: 0 auto;  /* Center the button */
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);  /* Match box-shadow */
+}
+
+#randomGameButton:hover, #randomGameButton:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00;  /* Match hover/focus color */
+}
+
+
+
+    #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/* CSS for centering and styling the countdown */
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px; /* Adjust this to make it bigger */
+    color: #FFFFFF; /* White text color */
+    background-color: transparent; /* No background */
+    padding: 10px; /* Adjust the padding as needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.game-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.top-bar {
+    background-color: #1a1a1a; /* Match with the site's dark background */
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.top-bar a {
+    float: left;
+    display: block;
+    color: #ffffff; /* White text color for visibility */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px; /* Adjusted to match the rest of the site */
+    font-family: 'Karla', sans-serif; /* Match with the site's font */
+}
+
+.top-bar a:hover {
+    background-color: #737379; /* A hover color that adds a bit of contrast */
+    color: white;
+}
+
+.top-bar a.active {
+    background-color: #737379; /* Same as hover color to avoid green */
+    color: white;
+}
+
+
+
+.category-container {
+    margin-bottom: 100px; /* Ensures a gap between categories */
+    display: flex; /* Ensures categories are displayed as block elements */
+    width: 100%;
+}
+
+
+
+.category a {
+    display: flex; /* Ensure games are displayed as flex items */
+    width: 250px; /* Set a specific width for each game item */
+    height: 250px; /* Set a specific height for each game item */
+    margin: 5px; /* Add margin between game items */
+    align-items: flex-end; /* Align items at the bottom */
+}
+
+.game_title {
+    font-size: 1.5em;
+    margin-bottom: 10px; /* Adjusts the size and margin for game titles */
+}
+/* Centered Settings Styling */
+/* Mask Dropdown Styling */
+.mask-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mask-dropdown label {
+    margin-right: 10px;
+    font-family: var(--font);
+    color: var(--accentColor);
+}
+
+/* Dropdown styling */
+.select-dropdown {
+    width: 200px; /* Adjust the width as needed */
+    background: #292929; /* Match the background color */
+    color: #E6E6E6; /* Match the font color */
+    border: 1px solid #353535; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5); /* Box shadow */
+    padding: 10px; /* Padding inside the dropdown */
+    font-family: var(--font); /* Font family */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Dropdown option styling */
+.select-dropdown option {
+    background: #292929; /* Match the background color */
+    color: #E6E6E6; /* Match the font color */
+    padding: 10px; /* Padding inside the options */
+    font-family: var(--font); /* Font family */
+    font-size: 16px; /* Font size */
+}
+
+/* Hover and focus effects */
+.select-dropdown:hover, .select-dropdown:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00; /* Hover/focus color */
+}
+
+/* Panic Button Setting Styling */
+.panic-button-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    color: var(--accentColor);
+    margin-top: 20px;
+}
+
+.panic-button-setting label {
+    margin-bottom: 10px;
+}
+
+.panic-button-setting input {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    background-color: #292929;
+    color: #fff;
+    padding: 5px;
+    font-size: 16px;
+    font-family: var(--font);
+}
+
+.panic-button-setting input:hover, .panic-button-setting input:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00; /* Hover/focus color */
+}
+
+/* Centered Settings Styling */
+.centered-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Section Headings */
+.settings-heading {
+    font-family: var(--font);
+    color: var(--accentColor);
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.disclaimer {
+    text-align: center;
+    margin: 10px 0;
+    color: rgb(85, 85, 85);
+}
+
+.search-bar {
+    text-align: center;
+    margin: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.movie-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.movie-container a.link {
+    scroll-margin-top: 2em;
+    outline: transparent;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    background: #292929;
+    margin: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.movie-container a.link img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.movie-container a.link:before {
+    content: "";
+    background: rgba(0,0,0,0.25);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+}
+
+.movie-container a.link .bar {
+    background: #000;
+    height: 0px;
+    width: 100%;
+    transition: .4s;
+    z-index: 4;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.movie-container a.link b {
+    z-index: 5;
+    position: relative;
+}
+
+.movie-container a.link:hover .bar {
+    height: 40px;
+}
+
+.movie-container a.link:hover b {
+    display: block;
+    color: white; /* Ensure the text is visible against the black box */
+}
+
+.movie-container a.link:hover {
+    filter: brightness(95%);
+    translate: 0 1px;
+    box-shadow: none;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+}
+
+.review-form, .reviews-container {
+    text-align: center;
+    margin: 20px;
+    color: #E6E6E6;
+}
+
+.review-form input[type="text"], .review-form textarea {
+    display: block;
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1C1C1C;
+    color: #E6E6E6;
+}
+
+.review-form button {
+    background-color: #292929;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+    display: block;
+    margin: 10px auto;
+}
+
+.review-form button:hover {
+    filter: brightness(95%);
+    box-shadow: none;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.star-rating .fa-star {
+    cursor: pointer;
+    font-size: 2em;
+    color: #ccc;
+}
+
+.star-rating .fa-star.checked {
+    color: #ffcc00;
+}
+
+.review {
+    background-color: #292929;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    animation: fadeIn 0.5s;
+}
+
+.review .like-button, .review .delete-button {
+    cursor: pointer;
+    color: #ccc;
+    margin-left: 10px;
+}
+
+.review .like-button.liked {
+    color: #00bb00;
+}
+
+.review .delete-button {
+    display: none;
+    color: #FF0000;
+}
+
+.review .delete-button.show {
+    display: inline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.delete-notification {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    display: none;
+}
+
+/* Highlight only the active tab */
+.tab-highlight {
+    background-color: #353535;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.dev-code-setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    color: var(--accentColor);
+    margin-top: 20px;
+}
+
+.dev-code-setting label {
+    margin-bottom: 10px;
+}
+
+.dev-code-setting input {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #353535;
+    border-radius: 5px;
+    background-color: #292929;
+    color: #fff;
+    padding: 5px;
+    font-size: 16px;
+    font-family: var(--font);
+}
+
+.pdev-code-setting input:hover, .dev-code-setting input:focus {
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color: #00bb00; /* Hover/focus color */
+}

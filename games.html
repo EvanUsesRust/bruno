@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Games | Schoology</title>
+    <link rel="icon" type="image/x-icon" href="./icons/schoology2.png">
+    <meta property="og:title" content="Play unblocked games online">
+    <meta property="og:description" content="SCHOOLOGY">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d0c5025972.js" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="var(--bgColor)">
+    <script src="panicButton.js"></script> <!-- Include panicButton.js -->
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a id="homeTab" href="index.html">Home</a>
+        <a id="gamesTab" class="active" href="games.html">Games</a>
+    
+        <a id="reviewsTab" href="reviews.html">Reviews</a>
+        <a id="settingsTab" href="settings.html">Settings</a>
+    </div>
+
+    <div id="particles-js"></div>
+    <!-- Page Content Below -->
+    <img id="userPhoto" class="animated rubberBand fast" src="icons/logo.png" alt="Your Name's Photo">
+    <h1 class="animated jello game_title">Eli's Unblocked Games</h1>
+    
+
+    <div class="centered-container">
+        <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fplaygamez.github.io%2Fbruno%2F&s=40&c=ffffff&bg=00000000&no=6&ff=karla&tb=Visit+Counter%3A+&ta=" alt="Visit Counter:">
+    </div>
+
+    <script src="particles.js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.js/particles.json', function() {
+            console.log('particles.js loaded');
+        });
+
+        // Highlight the active tab
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentLocation = window.location.pathname;
+            const homeTab = document.getElementById("homeTab");
+            const gamesTab = document.getElementById("gamesTab");
+            const proxyTab = document.getElementById("proxyTab");
+            const settingsTab = document.getElementById("settingsTab");
+            const movieTab = document.getElementById("movieTab");
+            const reviewTab = document.getElementById("reviewTab");
+            // Remove 'active' class from all tabs
+            homeTab.classList.remove("active");
+            gamesTab.classList.remove("active");
+            proxyTab.classList.remove("active");
+            settingsTab.classList.remove("active");
+            movieTab.classList.remove("active");
+            reviewTab.classList.remove("active");
+
+            // Add 'active' class to the current tab
+            if (currentLocation.includes("games.html")) {
+                gamesTab.classList.add("active");
+            } else if (currentLocation.includes("proxy")) {
+                proxyTab.classList.add("active");
+            } else if (currentLocation.includes("settings")) {
+                settingsTab.classList.add("active");
+            } else if (currentLocation.includes("movies")) {
+                movieTab.classList.add("active");
+            } else if (currentLocation.includes("review")) {
+                reviewTab.classList.add("active");
+            } else {
+                homeTab.classList.add("active");
+            }
+
+        });
+    </script>
+
+
+<div id="countdown"></div>
+<script>
+    function countdownTimer() {
+        const countDownDate = new Date("Mar 16, 2025 14:25:00").getTime();
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = 
+            "Spring Break Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "Spring Break is Here!";
+        }
+    }
+    
+    const timer = setInterval(countdownTimer, 1000);
+</script>
+
+
+
+    <div id="links" class="animated fadeInLeft delay-1s games"> 
+        <div class="game_title">
+            <input placeholder="Search" id="search" class="search" onkeyup="search_it()" type="search">
+            <select id="tags" class="button" onclick="search_it()">
+                <option value="all">All</option>
+                <option value="pop">Popular</option>
+                <option value="high">High Quality</option>
+                <option value="two">Two Player</option>
+                <option value="new">New</option>
+            </select>
+        </div> 
+        
+       
+<div class="centered-container">
+    <button id="gamesuggest" onclick="window.open('https://manatee.schoology.com/user/109332883/blog/post/7599267851', '_blank')">Suggest Games Here!</button>
+</div>
+
+<div class="centered-container">
+    <button id="randomGameButton">Play a Random Game</button>
+</div>
+
+
+
+
+<div id="presentsCategory" class="category-container">
+    <h2 class="animated jello game_title"> (idea by Henley)   Presents:  </h2>
+    <div class="category game-category">
+        <a id="lol shot" class="link new" href="play/lolshotio/" target="_blank"><span class="bar"></span><img src="./icons/lolshot-io.webp"><b>Lol Shot io</b><span class="badge2"><i class="fa-solid fa-star"></i> New! Suggested by Henley</span><span class="badge2"></span></a> 
+        <a id="Skibidi" class="link new" href="play/skib//" target="_blank"><span class="bar"></span><img src="./icons/skib.webp"><b>Skibidi Toilet Attack</b><span class="badge2"><i class="fa-solid fa-star"></i> New! Suggested by Henley </span><span class="badge2"></span></a> 
+        <a id="Present 3" class="link" href="" target="_blank"><span class="bar"></span><img src="./icons/present3.png"><b>Opens 1/8/25</b></a> 
+        <a id="Present 4" class="link" href="" target="_blank"><span class="bar"></span><img src="./icons/present4.png"><b>Opens 1/9/25</b></a> 
+        <a id="Present 5" class="link" href="" target="_blank"><span class="bar"></span><img src="./icons/present5.png"><b>Opens 1/10/25</b></a> 
+    </div>
+</div>
+
+
+    
+<div id="vehicleGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Vehicle Games:</h2>
+    <div class="category game-category">
+       
+        <a id="motox3m Pool Party" class="link" href="./play/motox3m-pool/" target="_blank"><span class="bar"></span><img src="./icons/motox3m-pool.webp"><b>Motox3m Pool Party</b></a> 
+        <a id="motox3m Spooky Land" class="link" href="./play/motox3m-spooky/" target="_blank"><span class="bar"></span><img src="./icons/moto-spook.webp"><b>Motox3m Spooky Land</b></a> 
+        <a id="Wheely 8" class="link" href="./play/wheely/" target="_blank"><span class="bar"></span><img src="./icons/wheely.webp"><b>Wheely 8</b> <span class="badge"><i class="fa-solid fa-star"></i> Suggested by Charlie</span><span class="badge"></span></a>
+        <a id="Wheely 7" class="link " href="./play/wheely7/" target="_blank"><span class="bar"></span><img src="./icons/wheely7.webp"><b>Wheely 7</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested By Charlie</span><span class="badge"></span></a>
+        <a id="Cars Simulator" class="link pop" href="./play/carssimulator/" target="_blank"><span class="bar"></span><img src="./icons/carssimulator.webp"><b>Cars Simulator</b></a>
+        <a id="PolyTrack" class="link high" href="./play/PolyTrack/" target="_blank"><span class="bar"></span><img src="./icons/Polytrack.webp"><b>PolyTrack</b> <span class="badge"><i class="fa-solid fa-star"></i> Suggested by Egor</span><span class="badge"></span></a> 
+        <a id="Wheelie Bike" class="link" href="./play/wheeliebike/" target="_blank"><span class="bar"></span><img src="./icons/wheeliebike.webp"><b>Wheelie Bike</b> <span class="badge"><i class="fa-solid fa-star"></i>Suggested by Drake</span><span class="badge"></span></a>   
+     </div>
+</div>
+    
+<div id="fpsFightingGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Fps/Fighting Games:</h2>
+    <div class="category game-category">
+        <a id="SuperHot" class="link" href="./play/superhot/" target="_blank"><span class="bar"></span><img src="./icons/superhot.webp"><b>SuperHot</b></a> 
+        <a id="Timeshooter" class="link high" href="./play/timeshooter/" target="_blank"><span class="bar"></span><img src="./icons/timeshooters.webp"><b>Timeshooter</b></a> 
+        <a id="Hammer 2 Reloaded" class="link high" href="./play/hammer2/" target="_blank"><span class="bar"></span><img src="./icons/hammer2.webp"><b>Hammer 2 Reloaded</b> <span class="badge"></span></a>
+        <a id="Stickman Archers" class="link two" href="./play/stickmanarchers/" target="_blank"><span class="bar"></span><img src="./icons/stickmanarchers.webp"><b>Stickman Archers</b></a>
+        <a id="Fury Wars" class="link" href="./play/furywars/" target="_blank"><span class="bar"></span><img src="./icons/furywars.webp"><b>Brawlstars Ripoff</b></a> 
+        <a id="Drift Hunters" class="link" href="./play/drifthunters/" target="_blank"><span class="bar"></span><img src="./icons/drifthunters.webp"><b>Drift Hunters</b> <span class="badge"><i class="fa-solid fa-star"></i> Suggested by Anderson</span><span class="badge"></span></a>
+        <a id="Boxing Physics" class="link two" href="./play/boxingphysics/" target="_blank"><span class="bar"></span><img src="./icons/boxingphysics.webp"><b>Boxing Physics</b></a>
+        <a id="Getaway Shootout" class="link high two" href="./play/getawayshootout/" target="_blank"><span class="bar"></span><img src="./icons/getawayshootout.webp"><b>Getaway Shootout</b></a> 
+        <a id="Boxing Random" class="link" href="./play/boxingrandom/" target="_blank"><span class="bar"></span><img src="./icons/boxingrandom.webp"></a>  
+        <a id="Iron Snout" class="link" href="./play/ironsnout/" target="_blank"><span class="bar"></span><img src="./icons/ironsnout.webp"><b>Iron Snout</b></a>  
+        <a id="Big Shot Boxing" class="link" href="./play/bigshotboxing/" target="_blank"><span class="bar"></span><img src="./icons/bigshotboxing.webp"><b>Big Shot Boxing</b> <span class="badge"><i class="fa-solid fa-star"></i>Suggested by Anderson</span><span class="badge"></span></a> 
+        <a id="Rooftop Snipers" class="link two" href="./play/rooftopsnipers/" target="_blank"><span class="bar"></span><img src="./icons/rooftopsnipers.webp"><b>Rooftop Snipers</b></a> 
+        <a id="Fortnite" class="link" href="./play/fortnite/" target="_blank"><span class="bar"></span><img src="./icons/fortnite.webp"><b>Fortnite Ripoff</b></a> 
+        <a id="Yohoho.io" class="link pop" href="./play/yoio/" target="_blank"><span class="bar"></span><img src="./icons/yoio.webp"><b>Yohoho.io</b></a> 
+        <a id="Awesome Tanks 2" class="link" href="./play/awesometanks/" target="_blank"><span class="bar"></span><img src="./icons/awesometanks.webp"><b>Awesome Tanks 2</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Magnus</span><span class="badge"></span></a>  
+    </div>
+</div>
+
+
+<div id="simulatorTypeGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Simulator-Type Games:</h2>
+    <div class="category game-category">
+        <a id="Johnny Upgrade" class="link high" href="./play/jhonnyupgrade/" target="_blank"><span class="bar"></span><img src="./icons/jhonnyupgrade.webp"><b>Johnny Upgrade</b> </a>
+        <a id="Gun Spin" class="link high" href="./play/gunspin/" target="_blank"><span class="bar"></span><img src="./icons/gunspin.webp"><b>Gun Spin</b></a>  
+        <a id="Raft Wars 2" class="link" href="./play/raftwars/" target="_blank"><span class="bar"></span><img src="./icons/raftwars.webp"><b>Raft Wars 2</b></a>
+        <a id="Clicker Hero" class="link" href="./play/clickerheros/" target="_blank"><span class="bar"></span><img src="./icons/clickerhero.webp"><b>Clicker Heros</b> </a>
+        <a id="Grind Craft" class="link" href="./play/grind/" target="_blank"><span class="bar"></span><img src="./icons/grind.webp"><b>Grind Craft</b></a>  
+        <a id="Cookie Clicker" class="link" href="./play/cookieclicker/" target="_blank"><span class="bar"></span><img src="./icons/cookieclicker.webp"><b>Cookie Clicker</b></a> 
+        <a id="Monkey Mart" class="link" href="./play/monkeymart/" target="_blank"><span class="bar"></span><img src="./icons/monkeymart.webp"><b>Monkey Mart</b></a> 
+        <a id="Earn to Die 2" class="link high" href="./play/earntodie/" target="_blank"><span class="bar"></span><img src="./icons/earntodie.webp"><b>Earn to Die 2</b></a> 
+        <a id="Ducklife 4" class="link" href="./play/ducklife4/" target="_blank"><span class="bar"></span><img src="./icons/ducklife4.webp"><b>Ducklife 4</b></a> 
+        <a id="learntofly2" class="link high" href="./play/learntofly2/" target="_blank"><span class="bar"></span><img src="./icons/learntofly2.webp"><b>Learn to fly 2</b></a> 
+        <a id="Ages of Conflict" class="link" href="./play/ages-of-conflict/" target="_blank"><span class="bar"></span><img src="./icons/ages-of-conflict.webp"><b>Ages of Conflict</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Reese</span></a>  
+        <a id="Bloons TD 4" class="link pop" href="./play/bloonstd4/" target="_blank"><span class="bar"></span><img src="./icons/bloonstd4.webp"><b>Bloons TD 4</b> <span class="badge"><i class="fa-solid fa-star"></i> Suggested by Wyatt</span></a>  
+        <a id="Bitlife BitLife" class="link pop" href="./play/bitlife/" target="_blank"><span class="bar"></span><img src="./icons/bitlife.webp"><b>Bitlife</b></a> 
+    </div>
+</div>
+
+
+<div id="runnerPlatformerGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Runner/Platformer Games:</h2>
+    <div class="category game-category">
+        <a id="Snow rider" class="link new" href="./play/snowrider/" target="_blank"><span class="bar"></span><img src="./icons/snowrider.webp"><b>Snow Rider 3d</b><span class="badge2"><i class="fa-solid fa-star"></i> New!</span></a> 
+        <a id="Subway Surfers: Monaco" class="link high" href="./play/subwaysurfersmonaco/" target="_blank"><span class="bar"></span><img src="./icons/SubwayMonaco.webp"><b>Subway Surfers: Monaco</b></a>
+        <a id="Jetpack Joyride" class="link" href="./play/jetpackjoyride/" target="_blank"><span class="bar"></span><img src="./icons/jetpackjoyride.webp"><b>Jetpack Joyride</b><span class="badge"><i class="fa-solid fa-star"></i> Prob blocked</span></a>
+        <a id="Slope" class="link pop" href="./play/slope/" target="_blank"><span class="bar"></span><img src="./icons/slope.webp"><b>Slope</b></a>
+        <a id="Slope 2 Player" class="link two" href="./play/slope2player/" target="_blank"><span class="bar"></span><img src="./icons/slope2player.webp"><b>Slope 2 Player</b></a>
+        <a id="Run 3" class="link" href="./play/run3/" target="_blank"><span class="bar"></span><img src="./icons/run3.webp"><b>Run 3</b></a>
+        <a id="Swingo" class="link" href="./play/swingo/" target="_blank"><span class="bar"></span><img src="./icons/swingo.webp"><b>Swingo</b></a>
+        <a id="Doodle jump" class="link" href="./play/doodlejump/" target="_blank"><span class="bar"></span><img src="./icons/doodlejump.webp"><b>Doodle Jump</b></a>
+        <a id="Stickman Hook" class="link" href="./play/stickmanhook/" target="_blank"><span class="bar"></span><img src="./icons/stickmanhook.webp"><b>StickmanHook</b></a>
+        <a id="Big Tower Tiny Square" class="link" href="./play/big-tower-tiny-square/" target="_blank"><span class="bar"></span><img src="./icons/btts.webp"><b>Big Tower Tiny Square</b></a>
+        <a id="Cluster Rush" class="link" href="./play/cluster-rush/" target="_blank"><span class="bar"></span><img src="./icons/cluster.webp"><b>Cluster Rush</b></a>
+        <a id="Getting over it" class="link" href="./play/gettingoverit/" target="_blank"><span class="bar"></span><img src="./icons/gettingoverit.webp"><b>Getting Over It ripoff</b></a>
+        <a id="Tube Jumpers" class="link two" href="./play/Tubejumpers/" target="_blank"><span class="bar"></span><img src="./icons/tube-jumpers.webp"><b>Tube Jumpers</b></a>
+        <a id="Temple Run" class="link" href="./play/temple-run-2/" target="_blank"><span class="bar"></span><img src="./icons/templerun.webp"><b>Temple Run</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Wyatt</span></a>
+        <a id="Choppy Orc" class="link" href="./play/choppyorc/" target="_blank"><span class="bar"></span><img src="./icons/choppyorc.webp"><b>Choppy Orc</b></a>
+        <a id="60 Second Burger Run" class="link" href="./play/60burger/" target="_blank"><span class="bar"></span><img src="./icons/60burger.webp"><b>60 Second Burger run</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Nico</span></a>
+        <a id="Google Snake" class="link pop" href="./play/snake/" target="_blank"><span class="bar"></span><img src="./icons/snake.webp"><b>Snake</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Nick</span></a>
+    </div>
+</div>
+
+<div id="mobileGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Mobile Games:</h2>
+    <div class="category game-category">
+        <a id="Amoung us " class="link new" href="./play/amoungus/" target="_blank"><span class="bar"></span><img src="./icons/amoungus.webp"><b>Amoung us-</b><span class="badge2"><i class="fa-solid fa-star"></i> New!</span></a> 
+        <a id="Impossible Quiz" class="link new" href="./play/impossiblequiz/" target="_blank"><span class="bar"></span><img src="./icons/impossiblequiz.jpg"><b>Impossible Quiz</b><span class="badge2"><i class="fa-solid fa-star"></i> New!</span></a> 
+        <a id="Burrito Bison" class="link high" href="./play/burritobison/" target="_blank"><span class="bar"></span><img src="./icons/burritobison.webp"><b>Burrito Bison</b></a>
+        <a id="Sausage flip" class="link" href="./play/sausageflip/" target="_blank"><span class="bar"></span><img src="./icons/sausageflip.webp"><b>Sausage Flip</b></a>
+        <a id="Mr Bullet" class="link" href="./play/mrbullet/" target="_blank"><span class="bar"></span><img src="./icons/mrbullet.webp"><b>Mr Bullet</b></a>
+        <a id="Rocket Soccer Derby" class="link high" href="./play/rocketderby/" target="_blank"><span class="bar"></span><img src="./icons/rocketderby.webp"><b>Rocket League Ripoff</b></a>
+        <a id="Cut the Rope" class="link" href="./play/cuttherope/" target="_blank"><span class="bar"></span><img src="./icons/cuttherope.webp"><b>Cut the Rope</b></a>
+        <a id="Little Alchemy" class="link" href="./play/littlemerge/" target="_blank"><span class="bar"></span><img src="./icons/littlemerge.webp"><b>Little Alchemy</b></a>
+        <a id="Tetris" class="link" href="./play/tetris/" target="_blank"><span class="bar"></span><img src="./icons/tetris.webp"><b>Tetris</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Will</span></a>
+        <a id="Block Blast" class="link" href="./play/blockblast/" target="_blank"><span class="bar"></span><img src="./icons/blockblast.webp"><b>BlockBlast</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Jack</span></a>
+        <a id="2048" class="link" href="./play/2048/" target="_blank"><span class="bar"></span><img src="./icons/2048.webp"><b>2048</b></a>
+        <a id="Watermelon game" class="link" href="./play/watermelon/" target="_blank"><span class="bar"></span><img src="./icons/watermelon.webp"><b>Watermelon Game</b></a>
+        <a id="Blumgi Bloom" class="link" href="./play/blumgibloom/" target="_blank"><span class="bar"></span><img src="./icons/blumgibloom.webp"><b>Blumgi Bloom</b></a>
+        <a id="Minecraft" class="link pop" href="./play/minecraft/" target="_blank"><span class="bar"></span><img src="./icons/minecraft.webp"><b>Minecraft</b></a>
+        <a id="Hole io" class="link" href="./play/hole-io/" target="_blank"><span class="bar"></span><img src="./icons/holeio.webp"><b>Hole.io</b></a>
+        <a id="Paper io 2" class="link" href="./play/paper-io-2/" target="_blank"><span class="bar"></span><img src="./icons/paperio2.webp"><b>Paper.io 2</b></a>
+        <a id="Achievement Unlocked" class="link high" href="./play/achievementunlocked/" target="_blank"><span class="bar"></span><img src="./icons/ache.webp"><b>Achievement Unlocked</b></a>
+    </div>
+</div>
+
+
+<div id="sportGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Sport Games:</h2>
+    <div class="category game-category">
+        <a id="Basket Bros" class="link two" href="./play/basketbros/" target="_blank"><span class="bar"></span><img src="./icons/basketbros.webp"><b>BasketBros</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Maximillian</span></a>
+        <a id="Retro Bowl" class="link" href="./play/retrobowl/" target="_blank"><span class="bar"></span><img src="./icons/retrobowl.webp"><b>Retro Bowl</b></a>
+        <a id="Basketball Stars" class="link two" href="./play/basketball-stars/" target="_blank"><span class="bar"></span><img src="./icons/BAS.webp"><b>Basketball Stars</b></a>
+    </div>
+</div>
+
+<div id="stickmanGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Stickman Games:</h2>
+    <div class="category game-category">
+        <a id="Flee The Complex" class="link high" href="./play/flee/" target="_blank"><span class="bar"></span><img src="./icons/fleecomplex.webp"><b>Flee The Complex</b></a>
+        <a id="Breaking the Bank" class="link" href="./play/escapingprison/" target="_blank"><span class="bar"></span><img src="./icons/breakbank.webp"><b>Breaking the Bank</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Anthony</span></a>
+        <a id="Infiltrating The Airship" class="link" href="./play/infiltratingtheairship/" target="_blank"><span class="bar"></span><img src="./icons/infiltratingtheairship.webp"><b>Infiltrating The Airship</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Kaden</span></a>
+        <a id="Stealing The Diamond" class="link" href="./play/stealingthediamond/" target="_blank"><span class="bar"></span><img src="./icons/stealingthediamond.webp"><b>Stealing The Diamond</b><span class="badge"><i class="fa-solid fa-star"></i> Suggested by Kaden</span></a>
+    </div>
+</div>
+
+
+<div id="papasGamesCategory" class="category-container">
+    <h2 class="animated jello game_title">Papa's Games:</h2>
+    <div class="category game-category">
+        <a id="Papa's Freezeria" class="link" href="./play/freeze/" target="_blank"><span class="bar"></span><img src="./icons/freeze.webp"><b>Papa's Freezeria</b></a>  
+        <a id="Papa's Pizzeria" class="link" href="./play/pizza/" target="_blank"><span class="bar"></span><img src="./icons/pizza.webp"><b>Papa's Pizzeria</b></a>
+    </div>
+</div>
+
+
+            
+            <p class="game_title">Made by eli</p> 
+
+            <p class="game_title">put game suggestions in the blog</p> 
+
+        </div> 
+
+  
+        <script>
+            document.getElementById("randomGameButton").onclick = function() {
+                var games = document.querySelectorAll("#links a");
+                var randomGame = games[Math.floor(Math.random() * games.length)];
+                window.location.href = randomGame.href;
+            };
+        
+            function search_it() {
+                var tag = document.getElementById("tags").value;
+                var what_search = document.getElementById("search").value;
+        
+                console.log("Search term:", what_search);
+                console.log("Tag selected:", tag);
+        
+                // Lists of different categories
+                var pop_list = document.querySelectorAll(".pop");
+                var high_list = document.querySelectorAll(".high");
+                var two_list = document.querySelectorAll(".two");
+                var new_list = document.querySelectorAll(".new");
+        
+                // Reset all categories to be visible first
+                const categories = document.querySelectorAll('.category-container');
+                categories.forEach(category => {
+                    category.style.display = "block";
+                });
+        
+                if (what_search === "" && tag == "all") { 
+                    // Show all games if no search input and the tag is "all"
+                    console.log("Showing all games as no search input and tag is 'all'");
+                    for (var i = 0; i < game_list.length; i++) { 
+                        document.getElementById(game_list[i].id).style.display = "flex";
+                    } 
+                    for (var i = 0; i < good_games.length; i++) { 
+                        document.getElementById(good_games[i].id).style.display = "flex";
+                    } 
+                } else { 
+                    // Hide all games initially
+                    console.log("Hiding all games initially for filtering");
+                    for (var i = 0; i < game_list.length; i++) { 
+                        document.getElementById(game_list[i].id).style.display = "none";
+                    } 
+                    for (var i = 0; i < good_games.length; i++) { 
+                        document.getElementById(good_games[i].id).style.display = "none";
+                    }
+        
+                    // Show only the games that match the search criteria
+                    for (var i = 0; i < game_list.length; i++) { 
+                        var item = game_list[i].id.toLowerCase();
+                        var item2 = document.getElementById(game_list[i].id);
+                        if (item.includes(what_search.toLowerCase())) { 
+                            if (tag == "pop" && item2.classList.contains("pop")) { 
+                                console.log(`Showing ${item2.id} as it matches 'pop' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } else if (tag == "two" && item2.classList.contains("two")) { 
+                                console.log(`Showing ${item2.id} as it matches 'two' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } else if (tag == "high" && item2.classList.contains("high")) { 
+                                console.log(`Showing ${item2.id} as it matches 'high' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } else if (tag == "new" && item2.classList.contains("new")) { 
+                                console.log(`Showing ${item2.id} as it matches 'new' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } else if (tag == "bad" && item2.classList.contains("bad")) { 
+                                console.log(`Showing ${item2.id} as it matches 'bad' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } else if (tag == "all") { 
+                                console.log(`Showing ${item2.id} as it matches 'all' and search term`);
+                                document.getElementById(game_list[i].id).classList.add("active");
+                            } 
+                        } 
+                    } 
+                }
+                
+                // Update category visibility after search
+                updateCategoryVisibility();
+            }
+        
+            function updateCategoryVisibility() {
+                const categories = document.querySelectorAll('.category-container');
+        
+                categories.forEach((category, index) => {
+                    const links = category.querySelectorAll('a');
+        
+                    // Check if at least one link is visible
+                    let isVisible = Array.from(links).some(link => link.offsetParent !== null);
+        
+                    // Update the category visibility
+                    if (isVisible) {
+                        category.style.display = "block";
+                        console.log(`Category ${index} is visible.`);
+                    } else {
+                        category.style.display = "none";
+                        console.log(`Category ${index} is hidden.`);
+                    }
+                });
+        
+                console.log("Category visibility updated.");
+            }
+        
+            var game_list = document.querySelectorAll(".link"); 
+            var good_games = document.querySelectorAll(".glink"); 
+            var search_enter = document.getElementById("search"); 
+            search_enter.addEventListener("keyup", (event) => { 
+                if (event.key === "Enter") { 
+                    search_it(); 
+                } 
+            });
+        
+            // Initial check when DOM is fully loaded
+            document.addEventListener("DOMContentLoaded", function() {
+                updateCategoryVisibility();
+            });
+        </script>
+        
+        <script>
+        
+                // Load the saved option from localStorage
+                const savedOption = localStorage.getItem('selectedMaskOption');
+                if (savedOption) {
+                    const maskDropdown = document.getElementById('maskDropdown');
+                    if (maskDropdown) {
+                        maskDropdown.value = savedOption;
+        
+                        const selectedOption = maskDropdown.options[maskDropdown.selectedIndex];
+                        const newTitle = selectedOption.getAttribute('data-title');
+                        const newIcon = selectedOption.getAttribute('data-icon');
+        
+                        // Change the title and favicon based on the saved option
+                        document.title = newTitle;
+                        const favicon = document.querySelector("link[rel='icon']");
+                        favicon.href = newIcon;
+                    } else {
+                        // Fallback if maskDropdown doesn't exist on this page
+                        const maskDropdownFallback = document.createElement('select');
+                        maskDropdownFallback.innerHTML = `
+                            <option value="schoology" data-title="Home | Schoology" data-icon="./icons/schoology2.png">Schoology</option>
+                            <option value="focus" data-title="Portal" data-icon="./icons/focus.png">Focus</option>
+                        `;
+                        const savedOptionElement = Array.from(maskDropdownFallback.options).find(option => option.value === savedOption);
+                        if (savedOptionElement) {
+                            document.title = savedOptionElement.getAttribute('data-title');
+                            const favicon = document.querySelector("link[rel='icon']");
+                            favicon.href = savedOptionElement.getAttribute('data-icon');
+                        }
+                    }
+                }
+        
+                // Change the title and favicon based on dropdown selection
+                if (maskDropdown) {
+                    maskDropdown.addEventListener('change', function() {
+                        const selectedOption = maskDropdown.options[maskDropdown.selectedIndex];
+                        const newTitle = selectedOption.getAttribute('data-title');
+                        const newIcon = selectedOption.getAttribute('data-icon');
+        
+                        // Change the title
+                        document.title = newTitle;
+        
+                        // Change the favicon
+                        const favicon = document.querySelector("link[rel='icon']");
+                        favicon.href = newIcon;
+        
+                        // Save the selected option to localStorage
+                        localStorage.setItem('selectedMaskOption', maskDropdown.value);
+                    });
+                }
+      
+        </script>
+
+<script>
+
+
+
+        // Load the saved panic button key from localStorage
+        const savedPanicKey = localStorage.getItem('panicButtonKey') || '`';
+
+        // Add a keydown event listener for the panic button
+        document.addEventListener('keydown', function(event) {
+            if (event.key === savedPanicKey) {
+                window.location.href = 'https://manatee.schoology.com/home';
+            }
+        });
+ 
+</script>
+
+        
+        

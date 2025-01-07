@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Reviews | Schoology</title>
+    <link rel="icon" type="image/x-icon" href="./icons/schoology2.png">
+    <meta property="og:title" content="Play unblocked games online">
+    <meta property="og:description" content="SCHOOLOGY">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d0c5025972.js" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="var(--bgColor)">
+    <script src="panicButton.js"></script> <!-- Include panicButton.js -->
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDlmJ6xkhZ0EeHP89OkQhvgiQp7oFA8vyo",
+            authDomain: "reviews-playgamez.firebaseapp.com",
+            databaseURL: "https://reviews-playgamez-default-rtdb.firebaseio.com",
+            projectId: "reviews-playgamez",
+            storageBucket: "reviews-playgamez.firebasestorage.app",
+            messagingSenderId: "797570756984",
+            appId: "1:797570756984:web:e7d30e710c22216fab188d",
+            measurementId: "G-04QCKSGP03"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+    </script>
+    <style>
+        .spinner {
+            border: 4px solid rgba(0,0,0,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #09f;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .review-form, .reviews-container {
+            text-align: center;
+            margin: 20px;
+            color: #E6E6E6;
+        }
+
+        .review-form input[type="text"], .review-form textarea {
+            display: block;
+            width: 80%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #1C1C1C;
+            color: #E6E6E6;
+        }
+
+        .review-form button {
+            background-color: #292929;
+            border: 1px solid #353535;
+            border-radius: 5px;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+            color: #fff;
+            cursor: pointer;
+            transition: .2s;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .review-form button:hover {
+            filter: brightness(95%);
+            box-shadow: none;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .star-rating .fa-star {
+            cursor: pointer;
+            font-size: 2em;
+            color: #ccc;
+        }
+
+        .star-rating .fa-star.checked {
+            color: #ffcc00;
+        }
+
+        .review {
+            background-color: #292929;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+            animation: fadeIn 0.5s;
+        }
+
+        .review .like-button, .review .delete-button {
+            cursor: pointer;
+            color: #ccc;
+            margin-left: 10px;
+        }
+
+        .review .like-button.liked {
+            color: #00bb00;
+        }
+
+        .review .delete-button {
+            display: none;
+            color: #FF0000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .delete-notification {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            display: none;
+        }
+
+        .pinned-review {
+            background-color: #333333;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+            animation: fadeIn 0.5s;
+            text-align: center;
+        }
+
+        .pinned-review-name {
+            color: #FFD700; /* Yellow color for the name */
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .pinned-review-content {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .pinned-review .star-rating .fa-star {
+            font-size: 1em; /* Smaller star size for pinned review */
+            color: #ffcc00;
+        }
+
+        .pinned-review .star-rating .fa-star.checked {
+            color: #ffcc00;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Particles JS Background -->
+    <div id="particles-js"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a id="homeTab" href="index.html">Home</a>
+        <a id="gamesTab" href="games.html">Games</a>
+        <a id="reviewsTab" class="active" href="reviews.html">Reviews</a>
+        <a id="settingsTab" href="settings.html">Settings</a>
+    </div>
+
+    <!-- Toggle Delete Mode Button -->
+    <button id="toggleDeleteMode" class="button" style="display: none;"> Delete Mode</button>
+
+    <div id="deleteNotification" class="delete-notification" style="display: none;">
+        Delete Mode is ON. 
+    </div>
+
+    <!-- Review Form -->
+    <div class="review-form">
+        <h1 class="animated jello game_title">Leave a Review</h1>
+        <form id="reviewForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="review" placeholder="Your Review" required></textarea>
+            <div class="star-rating" aria-label="Star rating">
+                <span class="fa fa-star" data-rating="1" role="button" tabindex="0"></span>
+                <span class="fa fa-star" data-rating="2" role="button" tabindex="0"></span>
+                <span class="fa fa-star" data-rating="3" role="button" tabindex="0"></span>
+                <span class="fa fa-star" data-rating="4" role="button" tabindex="0"></span>
+                <span class="fa fa-star" data-rating="5" role="button" tabindex="0"></span>
+            </div>
+            <input type="hidden" id="rating" value="0">
+            <button type="submit" class="button">Submit Review</button>
+        </form>
+    </div>
+
+    <!-- Pinned Review Container -->
+    <div class="pinned-review">
+        <h3 class="pinned-review-name">Pinned Comment</h3>
+        <p class="pinned-review-content">since yall were some comedians yesterday i added some antispam and antiswear.</p>
+    </div>
+
+    <!-- Reviews Container -->
+    <div class="reviews-container">
+        <h2 class="animated jello game_title">User Reviews</h2>
+        <div id="reviewsList"></div>
+    </div>
+
+    <!-- Particles JS -->
+    <script src="particles.js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.js loaded');
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleDeleteModeButton = document.getElementById('toggleDeleteMode');
+            const deleteNotification = document.getElementById('deleteNotification');
+
+            // Check for developer mode flag in localStorage
+            const developerMode = localStorage.getItem('developerMode');
+            if (developerMode === 'true') {
+                toggleDeleteModeButton.style.display = 'block';
+            }
+
+            function updateDeleteButtons() {
+                const deleteButtons = document.querySelectorAll('.delete-button');
+                deleteButtons.forEach(button => {
+                    button.style.display = isDeleteMode ? 'inline' : 'none';
+                });
+            }
+
+            let isDeleteMode = false;
+            toggleDeleteModeButton.addEventListener('click', function() {
+                isDeleteMode = !isDeleteMode;
+                deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
+                updateDeleteButtons();
+            });
+
+            const reviewForm = document.getElementById('reviewForm');
+            const reviewsList = document.getElementById('reviewsList');
+            const stars = document.querySelectorAll('.star-rating .fa-star');
+
+            // Loading spinner
+            const loadingSpinner = document.createElement('div');
+            loadingSpinner.className = 'spinner';
+            document.body.appendChild(loadingSpinner);
+
+            function showSpinner() {
+                loadingSpinner.style.display = 'block';
+            }
+
+            function hideSpinner() {
+                loadingSpinner.style.display = 'none';
+            }
+
+            // Show spinner when waiting for Firebase operations
+            showSpinner();
+            database.ref('reviews').on('value', (snapshot) => {
+                hideSpinner();
+                const reviews = snapshot.val() || {};
+                displayReviews(reviews);
+            }, (error) => {
+                hideSpinner();
+                console.error('Error loading reviews:', error);
+                alert('Failed to load reviews.');
+            });
+            // Star rating functionality
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.getAttribute('data-rating');
+                    document.getElementById('rating').value = rating;
+                    stars.forEach(s => s.classList.remove('checked'));
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].classList.add('checked');
+                    }
+                });
+                star.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        star.click();
+                    }
+                });
+            });
+
+            // Load the saved option from localStorage
+            const savedOption = localStorage.getItem('selectedMaskOption');
+            if (savedOption) {
+                const maskDropdown = document.getElementById('maskDropdown');
+                if (maskDropdown) {
+                    maskDropdown.value = savedOption;
+
+                    const selectedOption = maskDropdown.options[maskDropdown.selectedIndex];
+                    const newTitle = selectedOption.getAttribute('data-title');
+                    const newIcon = selectedOption.getAttribute('data-icon');
+
+                    // Change the title and favicon based on the saved option
+                    document.title = newTitle;
+                    const favicon = document.querySelector("link[rel='icon']");
+                    favicon.href = newIcon;
+                } else {
+                    // Fallback if maskDropdown doesn't exist on this page
+                    const maskDropdownFallback = document.createElement('select');
+                    maskDropdownFallback.innerHTML = `
+                        <option value="schoology" data-title="Home | Schoology" data-icon="./icons/schoology2.png">Schoology</option>
+                        <option value="focus" data-title="Portal" data-icon="./icons/focus.png">Focus</option>
+                    `;
+                    const savedOptionElement = Array.from(maskDropdownFallback.options).find(option => option.value === savedOption);
+                    if (savedOptionElement) {
+                        document.title = savedOptionElement.getAttribute('data-title');
+                        const favicon = document.querySelector("link[rel='icon']");
+                        favicon.href = savedOptionElement.getAttribute('data-icon');
+                    }
+                }
+            }
+
+            // Fetch bad words list
+            let badWordsList = [];
+
+            fetch('badWords.json')
+                .then(response => response.json())
+                .then(data => {
+                    badWordsList = data.badWords;
+                })
+                .catch(error => {
+                    console.error('Error loading cuss list:', error);
+                });
+
+            function cleanMessage(message) {
+                let cleanedMessage = message;
+                badWordsList.forEach(word => {
+                    const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                    cleanedMessage = cleanedMessage.replace(regex, '$%@#');
+                });
+                return cleanedMessage;
+            }
+
+            function isSpamMessage(message) {
+                const words = message.toLowerCase().split(/\s+/);
+                const wordCount = {};
+
+                words.forEach(word => {
+                    wordCount[word] = (wordCount[word] || 0) + 1;
+                });
+
+                return Object.values(wordCount).some(count => count >= 3);
+            }
+
+            // Handle form submission
+            reviewForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                let name = document.getElementById('name').value;
+                let review = document.getElementById('review').value;
+                const rating = document.getElementById('rating').value;
+                const date = new Date().toLocaleDateString("en-US");
+
+                // Apply word limit and cuss filter to name and review
+                name = cleanMessage(name);
+                review = cleanMessage(review);
+
+                console.log('Cleaned Name:', name); 
+                console.log('Cleaned Review:', review);
+
+                // Input validation
+                if (name.trim() === '' || review.trim() === '' || rating === '0') {
+                    alert('complete all feilds, dummy');
+                    return;
+                }
+
+                // Character limit validation
+                if (name.length > 50) {
+                    alert('you dont need that big ass name.');
+                    return;
+                }
+
+                if (review.length > 250) {
+                    alert('keep it under 250 characters, doof.');
+                    return;
+                }
+
+                // Check for links in the review
+                const urlPattern = /(https?:\/\/[^\s]+)/g;
+                if (urlPattern.test(review)) {
+                    alert('no links, numbnut.');
+                    return;
+                }
+
+                // Check for spam in the name and review
+                if (isSpamMessage(name) || isSpamMessage(review)) {
+                    alert('no spamming, goof.');
+                    return;
+                }
+
+                const reviewObject = { name, review, rating, likes: 0, date };
+
+                // Check for duplicate reviews
+                database.ref('reviews').once('value', (snapshot) => {
+                    const existingReviews = snapshot.val() || {};
+                    const reviewTexts = Object.values(existingReviews).map(r => r.review);
+                    if (reviewTexts.includes(review)) {
+                        alert('no spamming, dingus');
+                        return;
+                    }
+
+                    // Add new review to Firebase
+                    database.ref('reviews').push(reviewObject, (error) => {
+                        if (error) {
+                            console.error('Error adding review:', error);
+                            alert('Failed to add review.');
+                        } else {
+                            reviewForm.reset();
+                            stars.forEach(star => star.classList.remove('checked'));
+                        }
+                    });
+                });
+            });
+
+
+            function displayReviews(reviews) {
+                reviewsList.innerHTML = '';
+                Object.keys(reviews).forEach((key) => {
+                    const review = reviews[key];
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review';
+                    reviewDiv.innerHTML = `
+                        <h3>${review.name}</h3>
+                        <p>${review.review}</p>
+                        <div class="star-rating">
+                            ${getStarRatingHTML(review.rating)}
+                        </div>
+                        <div>
+                            <span>${review.date}</span>
+                            <span class="like-button" data-key="${key}"><i class="fa fa-thumbs-up"></i> ${review.likes}</span>
+                            <span class="delete-button" data-key="${key}" style="display: none;"><i class="fa fa-times"></i></span>
+                        </div>
+                    `;
+                    reviewsList.prepend(reviewDiv);
+                });
+                addLikeButtonListeners();
+                addDeleteButtonListeners();
+                updateDeleteButtons();
+            }
+
+            function getStarRatingHTML(rating) {
+                let html = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rating) {
+                        html += `<span class="fa fa-star checked"></span>`;
+                    } else {
+                        html += `<span class="fa fa-star"></span>`;
+                    }
+                }
+                return html;
+            }
+
+            // Define lastLikeTime
+            let lastLikeTime = 0; 
+
+            function addLikeButtonListeners() {
+                const likeButtons = document.querySelectorAll('.like-button');
+                likeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const currentTime = Date.now();
+                        if (currentTime - lastLikeTime < 1000) {
+                            return;
+                        }
+                        lastLikeTime = currentTime;
+
+                        const key = this.getAttribute('data-key');
+                        database.ref('reviews/' + key + '/likes').transaction((likes) => {
+                            return (likes || 0) + 1;
+                        });
+                    });
+                });
+            }
+
+        
+            
+            function addDeleteButtonListeners() {
+                const deleteButtons = document.querySelectorAll('.delete-button');
+                deleteButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const key = this.getAttribute('data-key');
+                        database.ref('reviews/' + key).remove();
+                    });
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let isDeleteMode = false;
+            const toggleDeleteModeButton = document.getElementById('toggleDeleteMode');
+            const deleteNotification = document.getElementById('deleteNotification');
+            const devCodeInput = document.getElementById('devCodeInput');
+
+            function updateDeleteButtons() {
+                const deleteButtons = document.querySelectorAll('.delete-button');
+                deleteButtons.forEach(button => {
+                    button.style.display = isDeleteMode ? 'inline' : 'none';
+                });
+            }
+
+            devCodeInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    const enteredCode = devCodeInput.value.toLowerCase();
+                    if (enteredCode === 'del') {
+                        isDeleteMode = true;
+                        deleteNotification.style.display = 'block';
+                        updateDeleteButtons();
+                        alert('Developer mode activated. Delete buttons are now visible.');
+                    } else {
+                        alert('Invalid code. Try again.');
+                    }
+                }
+            });
+
+            toggleDeleteModeButton.addEventListener('click', function() {
+                isDeleteMode = !isDeleteMode;
+                deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
+                updateDeleteButtons();
+            });
+
+            let deleteCode = "";
+            document.addEventListener('keydown', function(event) {
+                deleteCode += event.key.toLowerCase();
+                if (deleteCode.length > 7) {
+                    deleteCode = deleteCode.slice(-7);
+                }
+                if (deleteCode === "d e l e t e") {
+                    isDeleteMode = !isDeleteMode;
+                    deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
+                    updateDeleteButtons();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

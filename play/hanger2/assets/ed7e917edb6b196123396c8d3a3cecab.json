@@ -1,0 +1,1217 @@
+{
+  "levels": {
+    "1": {
+      "length": 3,
+      "tightness": 0.2,
+      "tightnessVariation": 0.1,
+      "holes": 0,
+      "islands": 0,
+      "autoEvents": 0
+    },
+    "2": {
+      "length": 4,
+      "tightness": 0.25,
+      "holes": 0.2,
+      "autoEvents": 0
+    },
+    "3": {
+      "length": 6,
+      "tightness": 0.15,
+      "tightnessVariation": 0.06,
+      "spikes": 0,
+      "autoEvents": 0.12,
+      "holes": 0,
+      "propeller": 0.1,
+      "crateStack": 0.7,
+      "buzzSaw": 0,
+      "customEvents": [
+        {
+          "type": 4,
+          "pos": 3,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 4,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 24,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 14,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 20,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 18,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 5,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 8,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 10,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 12,
+          "y": -50
+        }
+      ]
+    },
+    "4": {
+      "length": 7,
+      "tightness": 0.1,
+      "tightnessVariation": 0.3,
+      "islands": 0,
+      "holes": 0,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 7,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 13,
+          "y": -120
+        }
+      ]
+    },
+    "5": {
+      "length": 8,
+      "tightness": 0.1,
+      "tightnessVariation": 0,
+      "propeller": 0,
+      "crateStack": 0.4,
+      "buzzSaw": 0,
+      "holes": 0,
+      "autoEvents": 0.2,
+      "islands": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 10,
+          "y": -100
+        },
+        {
+          "type": 4,
+          "pos": 12,
+          "y": -50
+        },
+        {
+          "type": 0,
+          "pos": 2,
+          "y": -850
+        },
+        {
+          "type": 4,
+          "pos": 27,
+          "y": -50
+        }
+      ]
+    },
+    "6": {
+      "length": 8,
+      "tightness": 0.1,
+      "tightnessVariation": 0.3,
+      "holes": 0,
+      "autoEvents": 0,
+      "islands": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 2,
+          "y": -150
+        },
+        {
+          "type": 1,
+          "pos": 7,
+          "y": -500
+        },
+        {
+          "type": 0,
+          "pos": 9,
+          "y": -120
+        },
+        {
+          "type": 1,
+          "pos": 14,
+          "y": -500
+        },
+        {
+          "type": 1,
+          "pos": 27,
+          "y": -50
+        }
+      ]
+    },
+    "7": {
+      "length": 8,
+      "tightness": 0.3,
+      "tightnessVariation": 0.2,
+      "holes": 0.1,
+      "autoEvents": 0,
+      "islands": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 7,
+          "y": -650
+        },
+        {
+          "type": 4,
+          "pos": 10,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 16,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 21,
+          "y": -50
+        }
+      ]
+    },
+    "8": {
+      "length": 8,
+      "tightness": 0.1,
+      "tightnessVariation": 0.3,
+      "holes": 0.1,
+      "autoEvents": 0,
+      "buzzSaw": 0,
+      "crateStack": 0,
+      "propeller": 0,
+      "customEvents": [
+        {
+          "type": 4,
+          "pos": 5,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 10,
+          "y": -50
+        },
+        {
+          "type": 0,
+          "pos": 14,
+          "y": 450
+        },
+        {
+          "type": 0,
+          "pos": 15,
+          "y": 450
+        },
+        {
+          "type": 4,
+          "pos": 25,
+          "y": -50
+        }
+      ]
+    },
+    "9": {
+      "length": 8,
+      "tightness": 0.1,
+      "tightnessVariation": 0.2,
+      "holes": 0,
+      "autoEvents": 0.3,
+      "buzzSaw": 0,
+      "crateStack": 1,
+      "propeller": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 18,
+          "y": -150
+        },
+        {
+          "type": 0,
+          "pos": 12,
+          "y": -150
+        },
+        {
+          "type": 4,
+          "pos": 9,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 14,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 21,
+          "y": -50
+        }
+      ]
+    },
+    "10": {
+      "length": 8,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "holes": 0.2,
+      "autoEvents": 0.2,
+      "buzzSaw": 0,
+      "crateStack": 0.1,
+      "propeller": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 18,
+          "y": -100
+        },
+        {
+          "type": 4,
+          "pos": 21,
+          "y": -50
+        }
+      ]
+    },
+    "11": {
+      "length": 6,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "holes": 0.1,
+      "autoEvents": 0.25,
+      "buzzSaw": 0,
+      "crateStack": 0,
+      "propeller": 0,
+      "customEvents": [
+        {
+          "type": 2,
+          "pos": 6,
+          "y": -450
+        },
+        {
+          "type": 2,
+          "pos": 14,
+          "y": -450
+        }
+      ]
+    },
+    "12": {
+      "length": 6,
+      "tightness": 0.1,
+      "tightnessVariation": 0.3,
+      "islands": 0,
+      "holes": 0.1,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 7,
+          "y": -120
+        },
+        {
+          "type": 2,
+          "pos": 15,
+          "y": -220
+        }
+      ]
+    },
+    "13": {
+      "length": 7,
+      "tightness": 0,
+      "tightnessVariation": 0.3,
+      "islands": 0,
+      "holes": 0.1,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 6,
+          "pos": 7,
+          "y": -450
+        },
+        {
+          "type": 2,
+          "pos": 18,
+          "y": -220
+        }
+      ]
+    },
+    "14": {
+      "length": 7,
+      "tightness": 0,
+      "tightnessVariation": 0.3,
+      "islands": 0,
+      "holes": 0,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 6,
+          "pos": 10,
+          "y": -450
+        },
+        {
+          "type": 1,
+          "pos": 14,
+          "y": -300
+        },
+        {
+          "type": 1,
+          "pos": 21,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 22,
+          "y": -220
+        }
+      ]
+    },
+    "15": {
+      "length": 10,
+      "tightness": 0.4,
+      "tightnessVariation": 0.05,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 7,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 1,
+          "pos": 11,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 50
+        }
+      ]
+    },
+    "16": {
+      "length": 8,
+      "tightness": 0.2,
+      "tightnessVariation": 0.05,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0.4,
+      "customEvents": [
+        {
+          "type": 7,
+          "pos": 7,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 6,
+          "pos": 13,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 0
+        },
+        {
+          "type": 7,
+          "pos": 20,
+          "ignoreLevelHeight": true,
+          "y": -100
+        }
+      ]
+    },
+    "17": {
+      "length": 6,
+      "tightness": 0.2,
+      "tightnessVariation": 0.15,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 4,
+          "pos": 5,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 6,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 7,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 8,
+          "y": -50
+        },
+        {
+          "type": 1,
+          "pos": 10,
+          "y": -400
+        },
+        {
+          "type": 4,
+          "pos": 14,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 15,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 16,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 21,
+          "y": -50
+        },
+        {
+          "type": 0,
+          "pos": 22,
+          "y": -150
+        }
+      ]
+    },
+    "18": {
+      "length": 7,
+      "tightness": 0.2,
+      "tightnessVariation": 0.4,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0.4,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 5,
+          "y": 450
+        },
+        {
+          "type": 0,
+          "pos": 6,
+          "y": 450
+        },
+        {
+          "type": 0,
+          "pos": 13,
+          "y": 450,
+          "x": 0
+        },
+        {
+          "type": 1,
+          "pos": 15,
+          "y": -400,
+          "x": 0
+        },
+        {
+          "type": 0,
+          "pos": 17,
+          "y": 450
+        },
+        {
+          "type": 0,
+          "pos": 20,
+          "y": 450
+        },
+        {
+          "type": 0,
+          "pos": 26,
+          "y": 450
+        },
+        {
+          "type": 6,
+          "pos": 22,
+          "ignoreLevelHeight": true,
+          "y": 100
+        }
+      ]
+    },
+    "19": {
+      "length": 9,
+      "tightness": 0,
+      "tightnessVariation": 0.05,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0.4,
+      "customEvents": [
+        {
+          "type": 2,
+          "pos": 3,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 9,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 11,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 14,
+          "ignoreLevelHeight": true,
+          "y": -300,
+          "x": 0
+        },
+        {
+          "type": 2,
+          "pos": 22,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 25,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 27,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 29,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 31,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 31,
+          "ignoreLevelHeight": true,
+          "y": 300
+        },
+        {
+          "type": 2,
+          "pos": 33,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 34,
+          "ignoreLevelHeight": true,
+          "y": -300
+        },
+        {
+          "type": 2,
+          "pos": 33,
+          "ignoreLevelHeight": true,
+          "y": 300
+        },
+        {
+          "type": 2,
+          "pos": 34,
+          "ignoreLevelHeight": true,
+          "y": 300
+        }
+      ]
+    },
+    "20": {
+      "length": 9,
+      "tightness": 0.2,
+      "tightnessVariation": 0.05,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 8,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 8,
+          "pos": 14,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 0
+        },
+        {
+          "type": 7,
+          "pos": 22,
+          "ignoreLevelHeight": true,
+          "y": -100,
+          "x": -100
+        },
+        {
+          "type": 8,
+          "pos": 30,
+          "ignoreLevelHeight": true,
+          "y": 0
+        }
+      ]
+    },
+    "22": {
+      "length": 9,
+      "tightness": 0.2,
+      "tightnessVariation": 0.4,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 4,
+          "pos": 2,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 3,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 5,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 6,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 9,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 10,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 11,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 12,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 16,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 17,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 18,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 19,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 20,
+          "y": -50
+        },
+        {
+          "type": 2,
+          "pos": 14,
+          "ignoreLevelHeight": true,
+          "y": -100,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 22,
+          "ignoreLevelHeight": true,
+          "y": 0
+        }
+      ]
+    },
+    "24": {
+      "length": 9,
+      "tightness": 0,
+      "tightnessVariation": 0.05,
+      "islands": 0,
+      "autoEvents": 0,
+      "holes": 0.9,
+      "customEvents": [
+        {
+          "type": 6,
+          "pos": 5,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 6,
+          "pos": 9,
+          "ignoreLevelHeight": true,
+          "y": 200,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 13,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 17,
+          "ignoreLevelHeight": true,
+          "y": 200
+        },
+        {
+          "type": 6,
+          "pos": 21,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 25,
+          "ignoreLevelHeight": true,
+          "y": 200,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 29,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 0
+        },
+        {
+          "type": 6,
+          "pos": 33,
+          "ignoreLevelHeight": true,
+          "y": 200,
+          "x": 0
+        }
+      ]
+    },
+    "25": {
+      "length": 7,
+      "tightness": 0,
+      "tightnessVariation": 0,
+      "islands": 0,
+      "holes": 0,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 7,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 8,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 9,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 10,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 11,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 12,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 13,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 14,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 15,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 16,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 17,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 18,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 19,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 20,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 21,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 22,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 23,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 24,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 25,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 26,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 27,
+          "y": -120
+        },
+        {
+          "type": 0,
+          "pos": 28,
+          "y": -120
+        }
+      ]
+    },
+    "30": {
+      "length": 7,
+      "tightness": 0,
+      "tightnessVariation": 0,
+      "islands": 0,
+      "holes": 0,
+      "autoEvents": 0,
+      "customEvents": [
+        {
+          "type": 0,
+          "pos": 7,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 8,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 9,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 10,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 11,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 12,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 13,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 14,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 15,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 16,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 17,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 18,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 19,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 20,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 21,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 22,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 23,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 24,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 25,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 26,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 27,
+          "y": -900
+        },
+        {
+          "type": 0,
+          "pos": 28,
+          "y": -900
+        }
+      ]
+    },
+    "35": {
+      "length": 10,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 7,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 7,
+          "pos": 4,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 8,
+          "pos": 8,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 8,
+          "pos": 30,
+          "ignoreLevelHeight": true,
+          "y": 0
+        }
+      ]
+    },
+    "45": {
+      "length": 5,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 7,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 1,
+          "pos": 4,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 8,
+          "pos": 8,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 4,
+          "pos": 12,
+          "ignoreLevelHeight": false,
+          "y": -50
+        }
+      ]
+    },
+    "55": {
+      "length": 5,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 4,
+          "pos": 6,
+          "ignoreLevelHeight": false,
+          "y": -50
+        },
+        {
+          "type": 4,
+          "pos": 4,
+          "ignoreLevelHeight": false,
+          "y": -50
+        },
+        {
+          "type": 8,
+          "pos": 8,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 4,
+          "pos": 12,
+          "ignoreLevelHeight": false,
+          "y": -50
+        }
+      ]
+    },
+    "8080": {
+      "length": 10,
+      "tightness": 0.1,
+      "tightnessVariation": 0.1,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 6,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 6,
+          "pos": 4,
+          "ignoreLevelHeight": true,
+          "y": 0
+        }
+      ]
+    },
+    "8081": {
+      "length": 10,
+      "tightness": 0.4,
+      "tightnessVariation": 0.05,
+      "autoEvents": 0,
+      "holes": 0,
+      "customEvents": [
+        {
+          "type": 7,
+          "pos": 6,
+          "ignoreLevelHeight": true,
+          "y": 0
+        },
+        {
+          "type": 1,
+          "pos": 7,
+          "ignoreLevelHeight": true,
+          "y": 0,
+          "x": 50
+        }
+      ]
+    }
+  }
+}

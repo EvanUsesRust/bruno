@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="roulette-container">
+        <div class="wheel-container">
+            <div class="wheel" id="wheel">
+                <div class="number black" style="transform: rotate(0deg) translate(130px) rotate(0deg);">0</div>
+                <div class="number red" style="transform: rotate(30deg) translate(130px) rotate(-30deg);">1</div>
+                <div class="number black" style="transform: rotate(60deg) translate(130px) rotate(-60deg);">2</div>
+                <div class="number red" style="transform: rotate(90deg) translate(130px) rotate(-90deg);">3</div>
+                <div class="number black" style="transform: rotate(120deg) translate(130px) rotate(-120deg);">4</div>
+                <div class="number red" style="transform: rotate(150deg) translate(130px) rotate(-150deg);">5</div>
+                <div class="number black" style="transform: rotate(180deg) translate(130px) rotate(-180deg);">6</div>
+                <div class="number red" style="transform: rotate(210deg) translate(130px) rotate(-210deg);">7</div>
+                <div class="number black" style="transform: rotate(240deg) translate(130px) rotate(-240deg);">8</div>
+                <div class="number red" style="transform: rotate(270deg) translate(130px) rotate(-270deg);">9</div>
+                <div class="number black" style="transform: rotate(300deg) translate(130px) rotate(-300deg);">10</div>
+                <div class="number green" style="transform: rotate(330deg) translate(130px) rotate(-330deg);">11</div>
+            </div>
+            <div class="arrow"></div>
+        </div>
+        <div id="result"></div>
+        <div class="betting">
+            <p>Balance: $<span id="balance">100</span></p>
+            <div class="bet-input">
+                <input type="number" id="betAmount" placeholder="Bet Amount">
+                <span class="bet-currency">$</span>
+            </div>
+            <button id="betRed">Bet on Red</button>
+            <button id="betBlack">Bet on Black</button>
+            <button id="betGreen">Bet on Green</button>
+        </div>
+        <button id="spinButton" disabled>Spin</button>
+        <div id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
