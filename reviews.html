@@ -196,21 +196,15 @@
     </div>
 
     <!-- Review Form -->
-    <div class="review-form">
-        <h1 class="animated jello game_title">Leave a Review</h1>
-        <form id="reviewForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <textarea id="review" placeholder="Your Review" required></textarea>
-            <div class="star-rating" aria-label="Star rating">
-                <span class="fa fa-star" data-rating="1" role="button" tabindex="0"></span>
-                <span class="fa fa-star" data-rating="2" role="button" tabindex="0"></span>
-                <span class="fa fa-star" data-rating="3" role="button" tabindex="0"></span>
-                <span class="fa fa-star" data-rating="4" role="button" tabindex="0"></span>
-                <span class="fa fa-star" data-rating="5" role="button" tabindex="0"></span>
-            </div>
-            <input type="hidden" id="rating" value="0">
-            <button type="submit" class="button">Submit Review</button>
-        </form>
+    <div class="review-form"></div>
+        <div class="review-form">
+            <h1 class="animated jello game_title">Leave a Review</h1>
+            <form id="reviewForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="review" placeholder="Your Review" required></textarea>
+                <button type="submit" class="button">Submit Review</button>
+            </form>
+        </div>
     </div>
 
     <!-- Pinned Review Container -->
@@ -260,7 +254,7 @@
 
             const reviewForm = document.getElementById('reviewForm');
             const reviewsList = document.getElementById('reviewsList');
-            const stars = document.querySelectorAll('.star-rating .fa-star');
+            
 
             // Loading spinner
             const loadingSpinner = document.createElement('div');
@@ -286,23 +280,8 @@
                 console.error('Error loading reviews:', error);
                 alert('Failed to load reviews.');
             });
-            // Star rating functionality
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    const rating = this.getAttribute('data-rating');
-                    document.getElementById('rating').value = rating;
-                    stars.forEach(s => s.classList.remove('checked'));
-                    for (let i = 0; i < rating; i++) {
-                        stars[i].classList.add('checked');
-                    }
-                });
-                star.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        star.click();
-                    }
-                });
-            });
-
+            
+           
             // Load the saved option from localStorage
             const savedOption = localStorage.getItem('selectedMaskOption');
             if (savedOption) {
@@ -385,6 +364,14 @@
                 if (name.trim() === '' || review.trim() === '' || rating === '0') {
                     alert('complete all feilds, dummy');
                     return;
+                }
+                
+                // Check if the user is in developer mode
+                const developerMode = localStorage.getItem('developerMode');
+                if (developerMode !== 'true') {
+                    alert('You are not authorized to comment.');
+                    return;
+            
                 }
 
                 // Character limit validation
@@ -539,6 +526,21 @@
                 deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
                 updateDeleteButtons();
             });
+
+            const devOnlyElements = document.querySelectorAll('.dev-only');
+            const developerMode = localStorage.getItem('developerMode');
+            
+            if (developerMode === 'true') {
+                devOnlyElements.forEach(element => {
+                    element.style.display = 'block';
+                });
+            } else {
+                devOnlyElements.forEach(element => {
+                    element.style.display = 'none';
+                });
+            }
+
+      
 
             let deleteCode = "";
             document.addEventListener('keydown', function(event) {
