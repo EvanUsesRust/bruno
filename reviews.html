@@ -227,16 +227,26 @@
         });
     </script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content remains the same -->
+</head>
+<body>
+    <!-- Your body content remains the same -->
+    <script src="particles.js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.js loaded');
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleDeleteModeButton = document.getElementById('toggleDeleteMode');
             const deleteNotification = document.getElementById('deleteNotification');
+            const devCodeInput = document.getElementById('devCodeInput');
 
-            // Check for developer mode flag in localStorage
-            const developerMode = localStorage.getItem('developerMode');
-            if (developerMode === 'true') {
-                toggleDeleteModeButton.style.display = 'block';
-            }
+            let isDeleteMode = false;
 
             function updateDeleteButtons() {
                 const deleteButtons = document.querySelectorAll('.delete-button');
@@ -245,18 +255,42 @@
                 });
             }
 
-            let isDeleteMode = false;
+            function activateDeleteMode() {
+                isDeleteMode = true;
+                deleteNotification.style.display = 'block';
+                updateDeleteButtons();
+                alert('Developer mode activated. Delete buttons are now visible.');
+            }
+
+            if (devCodeInput) {
+                devCodeInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const enteredCode = devCodeInput.value.toLowerCase();
+                        if (enteredCode === 'del') {
+                            activateDeleteMode();
+                        } else {
+                            alert('Invalid code. Try again.');
+                        }
+                    }
+                });
+            }
+
             toggleDeleteModeButton.addEventListener('click', function() {
                 isDeleteMode = !isDeleteMode;
                 deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
                 updateDeleteButtons();
             });
 
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' && event.ctrlKey) { // Example condition to activate delete mode
+                    activateDeleteMode();
+                }
+            });
+
             const reviewForm = document.getElementById('reviewForm');
             const reviewsList = document.getElementById('reviewsList');
-            
+            const stars = document.querySelectorAll('.star-rating .fa-star');
 
-            // Loading spinner
             const loadingSpinner = document.createElement('div');
             loadingSpinner.className = 'spinner';
             document.body.appendChild(loadingSpinner);
@@ -269,7 +303,6 @@
                 loadingSpinner.style.display = 'none';
             }
 
-            // Show spinner when waiting for Firebase operations
             showSpinner();
             database.ref('reviews').on('value', (snapshot) => {
                 hideSpinner();
@@ -280,8 +313,18 @@
                 console.error('Error loading reviews:', error);
                 alert('Failed to load reviews.');
             });
-            
-           
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.getAttribute('data-rating');
+                    document.getElementById('rating').value = rating;
+                    stars.forEach(s => s.classList.remove('checked'));
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].classList.add('checked');
+                    }
+                });
+            });
+
             // Load the saved option from localStorage
             const savedOption = localStorage.getItem('selectedMaskOption');
             if (savedOption) {
@@ -293,12 +336,10 @@
                     const newTitle = selectedOption.getAttribute('data-title');
                     const newIcon = selectedOption.getAttribute('data-icon');
 
-                    // Change the title and favicon based on the saved option
                     document.title = newTitle;
                     const favicon = document.querySelector("link[rel='icon']");
                     favicon.href = newIcon;
                 } else {
-                    // Fallback if maskDropdown doesn't exist on this page
                     const maskDropdownFallback = document.createElement('select');
                     maskDropdownFallback.innerHTML = `
                         <option value="schoology" data-title="Home | Schoology" data-icon="./icons/schoology2.png">Schoology</option>
@@ -353,28 +394,14 @@
                 const rating = document.getElementById('rating').value;
                 const date = new Date().toLocaleDateString("en-US");
 
-                // Apply word limit and cuss filter to name and review
                 name = cleanMessage(name);
                 review = cleanMessage(review);
 
-                console.log('Cleaned Name:', name); 
-                console.log('Cleaned Review:', review);
-
-                // Input validation
                 if (name.trim() === '' || review.trim() === '' || rating === '0') {
                     alert('complete all feilds, dummy');
                     return;
                 }
-                
-                // Check if the user is in developer mode
-                const developerMode = localStorage.getItem('developerMode');
-                if (developerMode !== 'true') {
-                    alert('You are not authorized to comment.');
-                    return;
-            
-                }
 
-                // Character limit validation
                 if (name.length > 50) {
                     alert('you dont need that big ass name.');
                     return;
@@ -385,14 +412,12 @@
                     return;
                 }
 
-                // Check for links in the review
                 const urlPattern = /(https?:\/\/[^\s]+)/g;
                 if (urlPattern.test(review)) {
                     alert('no links, numbnut.');
                     return;
                 }
 
-                // Check for spam in the name and review
                 if (isSpamMessage(name) || isSpamMessage(review)) {
                     alert('no spamming, goof.');
                     return;
@@ -400,7 +425,6 @@
 
                 const reviewObject = { name, review, rating, likes: 0, date };
 
-                // Check for duplicate reviews
                 database.ref('reviews').once('value', (snapshot) => {
                     const existingReviews = snapshot.val() || {};
                     const reviewTexts = Object.values(existingReviews).map(r => r.review);
@@ -409,7 +433,6 @@
                         return;
                     }
 
-                    // Add new review to Firebase
                     database.ref('reviews').push(reviewObject, (error) => {
                         if (error) {
                             console.error('Error adding review:', error);
@@ -421,7 +444,6 @@
                     });
                 });
             });
-
 
             function displayReviews(reviews) {
                 reviewsList.innerHTML = '';
@@ -451,17 +473,12 @@
             function getStarRatingHTML(rating) {
                 let html = '';
                 for (let i = 1; i <= 5; i++) {
-                    if (i <= rating) {
-                        html += `<span class="fa fa-star checked"></span>`;
-                    } else {
-                        html += `<span class="fa fa-star"></span>`;
-                    }
+                    html += `<span class="fa fa-star ${i <= rating ? 'checked' : ''}"></span>`;
                 }
                 return html;
             }
 
-            // Define lastLikeTime
-            let lastLikeTime = 0; 
+            let lastLikeTime = 0;
 
             function addLikeButtonListeners() {
                 const likeButtons = document.querySelectorAll('.like-button');
@@ -481,8 +498,6 @@
                 });
             }
 
-        
-            
             function addDeleteButtonListeners() {
                 const deleteButtons = document.querySelectorAll('.delete-button');
                 deleteButtons.forEach(button => {
@@ -492,67 +507,49 @@
                     });
                 });
             }
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            let isDeleteMode = false;
-            const toggleDeleteModeButton = document.getElementById('toggleDeleteMode');
-            const deleteNotification = document.getElementById('deleteNotification');
-            const devCodeInput = document.getElementById('devCodeInput');
+            document.addEventListener('DOMContentLoaded', function() {
+                let isDeleteMode = false;
+                const toggleDeleteModeButton = document.getElementById('toggleDeleteMode');
+                const deleteNotification = document.getElementById('deleteNotification');
+                const devCodeInput = document.getElementById('devCodeInput');
 
-            function updateDeleteButtons() {
-                const deleteButtons = document.querySelectorAll('.delete-button');
-                deleteButtons.forEach(button => {
-                    button.style.display = isDeleteMode ? 'inline' : 'none';
-                });
-            }
+                function updateDeleteButtons() {
+                    const deleteButtons = document.querySelectorAll('.delete-button');
+                    deleteButtons.forEach(button => {
+                        button.style.display = isDeleteMode ? 'inline' : 'none';
+                    });
+                }
 
-            devCodeInput.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter') {
-                    const enteredCode = devCodeInput.value.toLowerCase();
-                    if (enteredCode === 'del') {
-                        isDeleteMode = true;
-                        deleteNotification.style.display = 'block';
-                        updateDeleteButtons();
-                        alert('Developer mode activated. Delete buttons are now visible.');
-                    } else {
-                        alert('Invalid code. Try again.');
+                function activateDeleteMode() {
+                    isDeleteMode = true;
+                    deleteNotification.style.display = 'block';
+                    updateDeleteButtons();
+                    alert('Developer mode activated. Delete buttons are now visible.');
+                }
+
+                devCodeInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        const enteredCode = devCodeInput.value.toLowerCase();
+                        if (enteredCode === 'del') {
+                            activateDeleteMode();
+                        } else {
+                            alert('Invalid code. Try again.');
+                        }
                     }
-                }
-            });
-
-            toggleDeleteModeButton.addEventListener('click', function() {
-                isDeleteMode = !isDeleteMode;
-                deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
-                updateDeleteButtons();
-            });
-
-            const devOnlyElements = document.querySelectorAll('.dev-only');
-            const developerMode = localStorage.getItem('developerMode');
-            
-            if (developerMode === 'true') {
-                devOnlyElements.forEach(element => {
-                    element.style.display = 'block';
                 });
-            } else {
-                devOnlyElements.forEach(element => {
-                    element.style.display = 'none';
-                });
-            }
 
-      
-
-            let deleteCode = "";
-            document.addEventListener('keydown', function(event) {
-                deleteCode += event.key.toLowerCase();
-                if (deleteCode.length > 7) {
-                    deleteCode = deleteCode.slice(-7);
-                }
-                if (deleteCode === "d e l e t e") {
+                toggleDeleteModeButton.addEventListener('click', function() {
                     isDeleteMode = !isDeleteMode;
                     deleteNotification.style.display = isDeleteMode ? 'block' : 'none';
                     updateDeleteButtons();
-                }
+                });
+
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' && event.ctrlKey) {
+                        activateDeleteMode();
+                    }
+                });
             });
         });
     </script>
