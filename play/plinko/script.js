@@ -15,7 +15,7 @@ const gravity = 0.3;
 const friction = 0.98;
 let money = 100;
 
-const multipliers = [1.8, 1.4, 1.2, 0.8, 0.4, 0.8, 1.2, 1.4, 1.8];
+const multipliers = [2, 1.4, 1.2, 1, 0.5, 1, 1.2, 1.4, 2];
 
 function initPegs() {
     pegs.length = 0; // Clear the pegs array
