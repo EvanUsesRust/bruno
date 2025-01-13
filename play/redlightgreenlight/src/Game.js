@@ -1,4 +1,3 @@
-// components/Game.js
 import * as THREE from 'three';
 import Character from './components/Character.js';
 import AIPlayer from './components/AIPlayer.js'; // Import AIPlayer
@@ -18,6 +17,7 @@ import TouchControl from "./systems/TouchControl.js";
 
 class Game {
     constructor() {
+        console.log('Game constructor called');
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -37,6 +37,7 @@ class Game {
     }
 
     initScene() {
+        console.log('Initializing scene');
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(this.renderer.domElement);
 
@@ -54,56 +55,81 @@ class Game {
     }
 
     initSky() {
+        console.log('Initializing sky');
         this.sky = new Sky(this.scene);
     }
 
     loadAssets() {
-        this.gameField = new GameField(this.scene, () => this.assetManager.assetLoaded());
-        this.character = new Character('You', () => this.assetManager.assetLoaded());
+        console.log('Loading assets');
+        this.gameField = new GameField(this.scene, () => {
+            console.log('GameField loaded');
+            this.assetManager.assetLoaded();
+        });
+        this.character = new Character('You', () => {
+            console.log('Character loaded');
+            this.assetManager.assetLoaded();
+        });
         this.character.loadModel();
-        this.doll = new Doll('Doll', () => this.assetManager.assetLoaded());
+        this.doll = new Doll('Doll', () => {
+            console.log('Doll loaded');
+            this.assetManager.assetLoaded();
+        });
         this.doll.loadModel();
-        this.gunMan = new GunMan(this.scene, () => this.assetManager.assetLoaded());
+        this.gunMan = new GunMan(this.scene, () => {
+            console.log('GunMan loaded');
+            this.assetManager.assetLoaded();
+        });
         this.gunMan.loadModel();
     }
 
     loadSounds() {
-        this.soundManager = new SoundManager(this.camera, () => this.assetManager.assetLoaded());
+        console.log('Loading sounds');
+        this.soundManager = new SoundManager(this.camera, () => {
+            console.log('Sounds loaded');
+            this.assetManager.assetLoaded();
+        });
         this.soundManager.loadSounds();
     }
 
     onAssetsLoaded() {
+        console.log('All assets loaded');
         this.uiManager.hideLoadingScreen();
         this.uiManager.showStartButton();
     }
 
     addCharacterToScene() {
+        console.log('Adding character to scene');
         this.character.mesh.position.set(3, 0, (this.gameField.floor.height / 2) - 4); // Adjusted character position
         this.scene.add(this.character.mesh);
 
+        console.log('Adding doll to scene');
         this.doll.mesh.position.set(0, 4.79, -(this.gameField.floor.height / 2) + 4); // Adjusted character position
         this.scene.add(this.doll.mesh);
 
+        console.log('Adding gunman to scene');
         this.gunMan.mesh.position.set(-10, 0, -(this.gameField.floor.height / 2) + 4);
         this.scene.add(this.gunMan.mesh);
     }
 
     createAIPlayers() {
+        console.log('Creating AI players');
         this.aiPlayers = [];
         for (let i = 0; i < 50; i++) {
             const position = new THREE.Vector3(Math.random() * 20 - 10, 0, Math.random() * -30 + 10);
             const aiPlayer = new AIPlayer(`AI_${i}`, position, this.scene, this.onAssetsLoaded.bind(this));
             this.aiPlayers.push(aiPlayer);
+            console.log(`AI_${i} created at position: ${position}`);
         }
     }
 
     start() {
+        console.log('Starting game');
         this.animationSystem = new AnimationSystem(this.character);
         this.gameLogic = new GameLogic(this.character, this.inputHandler, this.animationSystem, this.gunMan, this.doll, this.soundManager, this.gameField, this.uiManager);
         this.cameraController = new CameraController(this.camera, this.character.mesh, 4.2, 2);
         this.touchController = new TouchControl(this.character.mesh, this.inputHandler);
         this.addCharacterToScene();
-        this.createAIPlayers(); // Add this line
+        this.createAIPlayers();
         this.gameLoop = new GameLoop([
             this.character,
             this.gameLogic,
@@ -119,6 +145,7 @@ class Game {
     }
 
     restart() {
+        console.log('Restarting game');
         this.uiManager.hideAllScreens();
         this.gameLogic.resetGame();
         this.gameLoop.resetClock();
@@ -126,6 +153,7 @@ class Game {
 
     checkGameOver() {
         if (!this.character.isAlive) {
+            console.log('Game over');
             this.uiManager.showGameOverScreen();
             this.gameField.stopClock();
             this.soundManager.stopAllSounds();
@@ -135,6 +163,7 @@ class Game {
 
     checkGameWin() {
         if (this.gameLogic.gameWin) {
+            console.log('Game won');
             this.uiManager.showWinScreen();
             this.gameField.stopClockWithWin();
             this.soundManager.stopAllSounds();
