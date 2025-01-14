@@ -1,5 +1,5 @@
 // components/CameraController.js
-import * as THREE from 'three';
+import * as THREE from './libs/three/build/three.core.js'
 
 class CameraController {
     constructor(camera, target, distance = 10, height = 5) {

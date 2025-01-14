@@ -1,8 +1,8 @@
-import * as THREE from 'three';
-import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
-import { FontLoader } from 'three/addons/loaders/FontLoader.js';
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { Constant } from "../helper/Constant.js";
+import * as THREE from './libs/three/build/three.core.js'
+import { GLTFLoader } from '../libs/three/examples/jsm/loaders/GLTFLoader.js';
+import { FontLoader } from '../libs/three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from '../libs/three/examples/jsm/geometries/TextGeometry.js';
+
 import Floor from "./Floor.js";
 import Wall from "./Wall.js";
 

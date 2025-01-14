@@ -1,5 +1,9 @@
 // components/Floor.js
-import * as THREE from 'three';
+import * as THREE from './libs/three/build/three.core.js'
+import { GLTFLoader } from '../libs/three/examples/jsm/loaders/GLTFLoader.js';
+import { FontLoader } from '../libs/three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from '../libs/three/examples/jsm/geometries/TextGeometry.js';
+
 import {Constant} from "../helper/Constant.js";
 
 class Floor {

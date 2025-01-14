@@ -1,6 +1,7 @@
-import * as THREE from './libs/three/build/three.module.js';
+import * as THREE from './libs/three/build/three.core.js';
 import { GLTFLoader } from './libs/three/examples/jsm/loaders/GLTFLoader.js';
 import { FontLoader } from './libs/three/examples/jsm/loaders/FontLoader.js';
+
 
 console.log('main.js is loaded');
 
@@ -15,18 +16,20 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 console.log('Renderer initialized and added to DOM');
 
-const loader = new GLTFLoader();
-loader.load('./public/assets/model/die.glb', function (gltf) {
-    console.log('Model loaded successfully');
+// GLTF Loader Example
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('./public/assets/model/die.glb', (gltf) => {
+    console.log('GLTF Model loaded successfully');
     scene.add(gltf.scene);
-}, undefined, function (error) {
-    console.error('An error occurred loading the model:', error);
+}, undefined, (error) => {
+    console.error('An error occurred loading the GLTF model:', error);
 });
 
+// Font Loader Example
 const fontLoader = new FontLoader();
-fontLoader.load('./public/assets/font/helvetiker_regular.typeface.json', function (font) {
+fontLoader.load('./public/assets/font/helvetiker_regular.typeface.json', (font) => {
     console.log('Font loaded successfully');
-}, undefined, function (error) {
+}, undefined, (error) => {
     console.error('An error occurred loading the font:', error);
 });
 

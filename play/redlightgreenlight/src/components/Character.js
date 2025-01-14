@@ -1,8 +1,13 @@
 // components/Character.js
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import {TextGeometry} from 'three/addons/geometries/TextGeometry.js'
+import * as THREE from './libs/three/build/three.core.js'
+import { GLTFLoader } from '../libs/three/examples/jsm/loaders/GLTFLoader.js';
+import { FontLoader } from '../libs/three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from '../libs/three/examples/jsm/geometries/TextGeometry.js';
+
+console.log('AIPlayer.js is loaded');
+
+// Rest of your AIPlayer.js code
+
 import {Constant} from "../helper/Constant.js";
 
 class Character {
@@ -13,6 +18,7 @@ class Character {
         this.animations = {};
         this.currentAction = null;
         this.loaded = false;
+
         this.isAlive = true;
         this.isDying = false;
         this.name = name;  // The name of the character
