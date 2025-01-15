@@ -1,22 +1,11 @@
-# Red Light Green Light Game
+# SQUID-GAME green light - red light game using Three.js
+Code from my Youtube video, [I Coded a Squid Game Javascript Game Using Three.js](https://www.youtube.com/watch?v=s1e1sI4Zz3k)
 
-## Overview
-A 3D implementation of the "Red Light, Green Light" game using **Three.js**, inspired by the Squid Game series. This project features a game field, walls with windows and guns, and a functional countdown timer.
+# ⭐️3D Models⭐️
+🔗 Player 3D model: https://sketchfab.com/3d-models/squid-game-people-2b158ecbe1734d7e8da813795aef6682
 
-## How to Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repository/red-light-green-light.git
-2. Navigate to the project directory:
-   ```bash
-   cd red-light-green-light
-3. Install dependencies:
-   ```bash
-   npm install
-4. Start the development server:
-   ```bash
-   npm run dev
-5. Open your browser and visit the URL provided by Vite (e.g., http://localhost:5173).
-## Requirements
-Node.js and npm installed on your system.
-Enjoy the game! 🚀
+🔗 Pink Soldier 3D model: https://sketchfab.com/3d-models/red-soldier-from-squid-game-111366aed5b547c5add63937cc4b99e2
+
+🔗 Doll 3D model: https://sketchfab.com/3d-models/squidgamedoll-4d6eb3321a2e42d4be1c83a983825e8e
+
+🔗 Tree 3D model: https://sketchfab.com/3d-models/low-poly-dead-tree-31d4fb51a0744cf6916d90928d5a936e
