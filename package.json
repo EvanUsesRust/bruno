@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "three": "^0.172.0"
+  },
+  "scripts": {
+    "build": "echo 'No build script specified' && exit 0"
   }
 }
