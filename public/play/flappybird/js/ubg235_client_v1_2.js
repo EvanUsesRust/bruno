@@ -9,7 +9,7 @@ function loadJS(FILE_URL, async = true) {
 
   // Success
   scriptEle.addEventListener("load", () => {
-    console.log("ucbg served");
+    console.log("ucbg served!");
   });
 
    // Error
